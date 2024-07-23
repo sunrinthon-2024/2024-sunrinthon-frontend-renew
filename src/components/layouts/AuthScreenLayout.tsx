@@ -1,9 +1,21 @@
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import { auth } from 'styles';
+import { palette } from 'styles';
 
 function AuthScreenLayout({ children }: React.PropsWithChildren) {
-  return <View style={auth.container}>{children}</View>;
+  const local = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'relative',
+      paddingHorizontal: 12,
+      paddingBottom: 20,
+      backgroundColor: palette.gray,
+    },
+  });
+
+  return <View style={local.container}>{children}</View>;
 }
 
 export default AuthScreenLayout;

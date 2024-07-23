@@ -1,18 +1,16 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { palette } from 'styles';
+import { Semi16 } from 'components/typo';
+import { btnProps } from 'components/buttons/btnInterface.ts';
 
-interface WideBtnProps {
-  type: 'white' | 'primary' | 'secondary' | 'disabled';
-  contents: string;
-  Icon: React.ReactNode;
-}
-
-function WideBtn({ type, contents, Icon }: WideBtnProps) {
-  const style = StyleSheet.create({
+function WideBtn({ type, contents, Icon, onPress }: btnProps) {
+  const local = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      gap: 12,
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: 10,
       backgroundColor:
         type === 'white'
           ? palette.white
@@ -23,12 +21,26 @@ function WideBtn({ type, contents, Icon }: WideBtnProps) {
           : palette.textGray,
       width: '100%',
       borderRadius: 52,
+      paddingVertical: 18,
     },
   });
 
   return (
-    <TouchableOpacity style={style.container}>
-
+    <TouchableOpacity
+      style={local.container}
+      disabled={type === 'disabled'}
+      onPress={onPress}>
+      {Icon && Icon}
+      <Semi16
+        color={
+          type === 'white'
+            ? 'textBlack'
+            : type === 'secondary'
+            ? 'primary'
+            : 'white'
+        }>
+        {contents}
+      </Semi16>
     </TouchableOpacity>
   );
 }

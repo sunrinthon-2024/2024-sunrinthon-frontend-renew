@@ -12,6 +12,7 @@ function TypoWrapper({ children }: { children: string }) {
   const context = useContext(TypoContext);
   const style = StyleSheet.create({
     config: {
+      fontFamily: 'Pretendard Variable',
       fontWeight: context.fontWeight,
       fontSize: context.fontSize,
       color: context.color ? palette[context.color] : palette.textBlack,

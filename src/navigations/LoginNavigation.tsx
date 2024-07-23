@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Login } from 'screens/auth';
+import { Login, RequestLocationPermission } from 'screens/auth';
 
 function LoginNavigation() {
   const Stack = createNativeStackNavigator();
@@ -7,6 +7,10 @@ function LoginNavigation() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={'Login'} component={Login} />
+      <Stack.Screen
+        name={'RequestLocationPermission'}
+        component={RequestLocationPermission}
+      />
     </Stack.Navigator>
   );
 }

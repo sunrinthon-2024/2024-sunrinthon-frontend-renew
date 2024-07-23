@@ -1,4 +1,4 @@
-import auth from 'styles/auth.ts';
 import palette from 'styles/palette.ts';
+import auth from 'styles/auth.ts';
 
-export { auth, palette };
+export { palette, auth };
