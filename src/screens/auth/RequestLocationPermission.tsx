@@ -7,8 +7,10 @@ import { ActiveLocationPing, DisabledLocationPing } from 'assets/buttonIcons';
 import { check, RESULTS } from 'react-native-permissions';
 import { View } from 'react-native';
 import { auth } from 'styles';
+import { useNavigation } from '@react-navigation/native';
 
 function RequestLocationPermission() {
+  const navigation = useNavigation();
   const [isAccess, setIsAccess] = useState(false);
   const locationPermissionHandler = useCallback(async () => {
     if (!isAccess) {
@@ -43,11 +45,14 @@ function RequestLocationPermission() {
           isToggle={isAccess}
           Icon={<DisabledLocationPing />}
           ToggledIcon={<ActiveLocationPing />}
+          disabled={isAccess}
         />
       </Col20>
       <View style={auth.bottomSection}>
         <WideBtn
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('LoginSuccess');
+          }}
           type={isAccess ? 'primary' : 'disabled'}
           contents="다음 단계"
         />

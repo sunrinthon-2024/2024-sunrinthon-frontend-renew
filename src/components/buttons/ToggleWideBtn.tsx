@@ -16,6 +16,7 @@ function ToggleWideBtn({
   ToggledIcon,
   isToggle,
   onPress,
+  disabled,
 }: toggleBtnProps) {
   const localStyle = StyleSheet.create({
     container: {
@@ -33,7 +34,7 @@ function ToggleWideBtn({
     <TouchableOpacity
       style={localStyle.container}
       onPress={onPress}
-      disabled={type === 'disabled'}>
+      disabled={type === 'disabled' || disabled}>
       {isToggle ? ToggledIcon && ToggledIcon : Icon && Icon}
       {isToggle ? (
         <Semi20 color="primary">{contents}</Semi20>

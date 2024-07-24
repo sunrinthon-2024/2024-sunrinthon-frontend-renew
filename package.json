@@ -10,8 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@dotlottie/react-player": "^1.6.19",
+    "@lottiefiles/react-lottie-player": "^3.5.4",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.10.1",
+    "lottie-react-native": "^6.7.2",
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-geolocation-service": "^5.3.1",

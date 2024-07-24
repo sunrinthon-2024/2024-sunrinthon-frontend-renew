@@ -4,7 +4,7 @@ import { palette } from 'styles';
 import { Semi16 } from 'components/typo';
 import { btnProps } from 'components/buttons/btnInterface.ts';
 
-function WideBtn({ type, contents, Icon, onPress }: btnProps) {
+function WideBtn({ type, contents, Icon, onPress, disabled }: btnProps) {
   const local = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -28,7 +28,7 @@ function WideBtn({ type, contents, Icon, onPress }: btnProps) {
   return (
     <TouchableOpacity
       style={local.container}
-      disabled={type === 'disabled'}
+      disabled={type === 'disabled' || disabled}
       onPress={onPress}>
       {Icon && Icon}
       <Semi16

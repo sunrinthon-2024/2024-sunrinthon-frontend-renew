@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Login, RequestLocationPermission } from 'screens/auth';
+import { Login, LoginSuccess, RequestLocationPermission } from 'screens/auth';
 
 function LoginNavigation() {
   const Stack = createNativeStackNavigator();
@@ -11,6 +11,7 @@ function LoginNavigation() {
         name={'RequestLocationPermission'}
         component={RequestLocationPermission}
       />
+      <Stack.Screen name={'LoginSuccess'} component={LoginSuccess} />
     </Stack.Navigator>
   );
 }

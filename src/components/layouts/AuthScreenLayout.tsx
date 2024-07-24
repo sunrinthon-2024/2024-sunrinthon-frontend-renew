@@ -9,8 +9,8 @@ function AuthScreenLayout({ children }: React.PropsWithChildren) {
       justifyContent: 'center',
       alignItems: 'center',
       position: 'relative',
-      paddingHorizontal: 12,
       paddingBottom: 20,
+      paddingHorizontal: 12,
       backgroundColor: palette.gray,
     },
   });

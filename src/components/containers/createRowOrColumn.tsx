@@ -11,6 +11,9 @@ interface RowColumnStyles {
     | 'space-evenly';
   alignItems?: FlexAlignType;
   width?: DimensionValue;
+  paddingVertical?: number;
+  paddingHorizontal?: number;
+  padding?: [number, number, number, number];
 }
 
 interface RowOrColumnContextType extends RowColumnStyles {
@@ -38,6 +41,12 @@ function RowOrColumnWrapper({ children }: { children: React.ReactNode }) {
         : 'flex-start',
       alignItems: context.alignItems ? context.alignItems : 'flex-start',
       width: context.width ? context.width : 'auto',
+      paddingVertical: context.paddingVertical,
+      paddingHorizontal: context.paddingHorizontal,
+      paddingTop: context.padding && context.padding[0],
+      paddingRight: context.padding && context.padding[1],
+      paddingBottom: context.padding && context.padding[2],
+      paddingLeft: context.padding && context.padding[3],
     },
   });
   return <View style={style.config}>{children}</View>;
