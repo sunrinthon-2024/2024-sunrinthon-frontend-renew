@@ -1,7 +1,14 @@
 import React, { createContext, useContext } from 'react';
-import { DimensionValue, FlexAlignType, StyleSheet, View } from 'react-native';
+import {
+  DimensionValue,
+  FlexAlignType,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 interface RowColumnStyles {
+  flex?: number;
   justifyContent?:
     | 'flex-start'
     | 'flex-end'
@@ -14,6 +21,7 @@ interface RowColumnStyles {
   paddingVertical?: number;
   paddingHorizontal?: number;
   padding?: [number, number, number, number];
+  style?: ViewStyle;
 }
 
 interface RowOrColumnContextType extends RowColumnStyles {
@@ -34,6 +42,7 @@ function RowOrColumnWrapper({ children }: { children: React.ReactNode }) {
   const context = useContext(RowOrColumnContext);
   const style = StyleSheet.create({
     config: {
+      flex: context.flex,
       flexDirection: context.flexDirection,
       gap: context.gap,
       justifyContent: context.justifyContent
@@ -49,15 +58,17 @@ function RowOrColumnWrapper({ children }: { children: React.ReactNode }) {
       paddingLeft: context.padding && context.padding[3],
     },
   });
-  return <View style={style.config}>{children}</View>;
+  return <View style={[style.config, context.style]}>{children}</View>;
 }
 
 export default function createRowOrColumn({
   flexDirection,
   gap,
+  justifyContent,
+  alignItems,
 }: RowOrColumnContextType) {
   return (props: RowColumnProps) => {
-    const config = { flexDirection, gap, ...props };
+    const config = { flexDirection, gap, justifyContent, alignItems, ...props };
     return (
       <RowOrColumnContext.Provider value={config}>
         <RowOrColumnWrapper>{props.children}</RowOrColumnWrapper>
