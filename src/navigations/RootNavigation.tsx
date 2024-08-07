@@ -7,7 +7,7 @@ import palette from 'styles/palette.ts';
 
 function RootNavigation() {
   const Stack = createNativeStackNavigator();
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState( true);
 
   return (
     <Fragment>

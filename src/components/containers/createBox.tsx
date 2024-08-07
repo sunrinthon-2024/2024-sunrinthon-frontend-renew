@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { View, StyleSheet, FlexAlignType } from 'react-native';
+import { View, StyleSheet, FlexAlignType, ViewStyle } from 'react-native';
 import { palette } from 'styles';
 
 interface boxStyleInterface {
@@ -15,6 +15,7 @@ interface boxStyleInterface {
   alignItems?: FlexAlignType;
   gap?: number;
   backgroundColor?: 'primary' | 'white' | 'gray' | 'textBlack' | 'textGray';
+  style?: ViewStyle;
 }
 interface boxContextInterface extends boxStyleInterface {
   paddingVertical: number;
@@ -59,6 +60,7 @@ export default function createBox({
   paddingHorizontal,
   borderRadius,
   backgroundColor,
+  style,
 }: boxContextInterface) {
   return (props: boxProps) => {
     const config = {
@@ -71,6 +73,7 @@ export default function createBox({
       paddingHorizontal,
       borderRadius,
       backgroundColor,
+      style,
       props,
     };
     return (

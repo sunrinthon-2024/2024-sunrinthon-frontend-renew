@@ -66,9 +66,17 @@ export default function createRowOrColumn({
   gap,
   justifyContent,
   alignItems,
+  flex,
 }: RowOrColumnContextType) {
   return (props: RowColumnProps) => {
-    const config = { flexDirection, gap, justifyContent, alignItems, ...props };
+    const config = {
+      flexDirection,
+      gap,
+      justifyContent,
+      alignItems,
+      flex,
+      ...props,
+    };
     return (
       <RowOrColumnContext.Provider value={config}>
         <RowOrColumnWrapper>{props.children}</RowOrColumnWrapper>

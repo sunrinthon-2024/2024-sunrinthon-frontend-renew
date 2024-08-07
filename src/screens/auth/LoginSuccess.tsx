@@ -31,7 +31,7 @@ function LoginSuccess() {
     <AuthScreenLayout>
       <Col12 alignItems="center">
         <AnimatedLottieView
-          source={require('@assets/loginSuccessAnimation.json')}
+          source={require('assets/login/loginSuccessAnimation.json')}
           loop={false}
           progress={animationProgress.current}
           style={localStyle.checkIcon}

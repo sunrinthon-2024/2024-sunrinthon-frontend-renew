@@ -53,3 +53,25 @@ export const SearchBoxWhite = createBox({
   alignItems: 'center',
   gap: 10,
 });
+
+export const BoxBtnPrimaryContainer = createBox({
+  paddingHorizontal: 12,
+  paddingVertical: 18,
+  borderRadius: 12,
+  backgroundColor: 'white',
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  style: {
+    position: 'relative',
+  },
+});
+export const BoxBtnGenericContainer = createBox({
+  paddingHorizontal: 12,
+  paddingVertical: 18,
+  borderRadius: 12,
+  backgroundColor: 'white',
+  flex: 1,
+  gap: 8,
+});

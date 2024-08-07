@@ -1,3 +1,5 @@
-import LoginBackgroundImage from '@assets/LoginBackgroundImage.svg';
+import LoginBackgroundImage from 'assets/login/LoginBackgroundImage.svg';
+import CheckFacilityToMap from 'assets/home/CheckFacilityToMap.svg';
+import RegisterNewSituation from 'assets/home/RegisterNewSituation.svg';
 
-export { LoginBackgroundImage };
+export { LoginBackgroundImage, CheckFacilityToMap, RegisterNewSituation };

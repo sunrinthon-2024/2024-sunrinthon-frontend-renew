@@ -17,8 +17,6 @@ function GenericLayout({
       flex: 1,
       backgroundColor: palette.gray,
       width: '100%',
-      gap: 4,
-      paddingTop: 24,
     },
     mainScreen: {
       gap: gap,
@@ -30,10 +28,15 @@ function GenericLayout({
     bottomMargin: {
       height: 60,
     },
+    headerWrapper: {
+      paddingVertical: 8,
+    },
   });
   return (
     <SafeAreaView style={localStyle.wholeScreen}>
-      <Header {...headerProps} />
+      <View style={localStyle.headerWrapper}>
+        <Header {...headerProps} />
+      </View>
       <ScrollView style={localStyle.mainScreen}>
         <View style={localStyle.topMargin} />
         {children}
