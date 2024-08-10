@@ -18,12 +18,14 @@ import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Destruction24, Raid24, Sheleter24 } from 'assets/symbol';
 import { StarMedium } from 'assets/buttonIcons';
+import { useNavigation } from '@react-navigation/native';
 
 function Home() {
   return (
     <GenericLayout
       gap={40}
       headerProps={{
+        backgroundColor: 'gray',
         isLogo: true,
         isStar: true,
         isMy: true,
@@ -153,24 +155,30 @@ const SubfunctionList = ({
   </Col20>
 );
 
-const MainFunctionArea = () => (
-  <Row12>
-    <BoxBtnPrimary onPress={() => {}}>
-      <Col0>
-        <Medium16>지도에서</Medium16>
-        <Medium16>시설 확인하기</Medium16>
-      </Col0>
-      <CheckFacilityToMap style={{ position: 'absolute', right: 0 }} />
-    </BoxBtnPrimary>
-    <BoxBtnPrimary onPress={() => {}}>
-      <Col0>
-        <Medium16>미등록 상황</Medium16>
-        <Medium16>등록하기</Medium16>
-      </Col0>
-      <RegisterNewSituation />
-    </BoxBtnPrimary>
-  </Row12>
-);
+const MainFunctionArea = () => {
+  const navigation = useNavigation();
+  return (
+    <Row12>
+      <BoxBtnPrimary
+        onPress={() => {
+          navigation.navigate('Map');
+        }}>
+        <Col0>
+          <Medium16>지도에서</Medium16>
+          <Medium16>시설 확인하기</Medium16>
+        </Col0>
+        <CheckFacilityToMap style={{ position: 'absolute', right: 0 }} />
+      </BoxBtnPrimary>
+      <BoxBtnPrimary onPress={() => {}}>
+        <Col0>
+          <Medium16>미등록 상황</Medium16>
+          <Medium16>등록하기</Medium16>
+        </Col0>
+        <RegisterNewSituation />
+      </BoxBtnPrimary>
+    </Row12>
+  );
+};
 
 const PresentNationAndPosition = () => (
   <Col10>

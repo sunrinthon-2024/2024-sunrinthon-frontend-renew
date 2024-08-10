@@ -9,10 +9,17 @@ import {
   StarBold,
 } from 'assets/buttonIcons';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export const ArrowBtn = ({ arrowSize }: { arrowSize?: 36 | 28 }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        if (navigation.canGoBack()) {
+          navigation.goBack();
+        }
+      }}>
       <IconBox8>{arrowSize === 36 ? <Arrow36 /> : <Arrow28 />}</IconBox8>
     </TouchableOpacity>
   );
@@ -40,15 +47,6 @@ export const EditBtn = () => {
     <TouchableOpacity>
       <IconBox8>
         <Edit />
-      </IconBox8>
-    </TouchableOpacity>
-  );
-};
-export const SettingBtn = () => {
-  return (
-    <TouchableOpacity>
-      <IconBox8>
-        <Setting />
       </IconBox8>
     </TouchableOpacity>
   );

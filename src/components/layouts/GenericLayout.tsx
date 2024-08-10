@@ -23,20 +23,19 @@ function GenericLayout({
       paddingHorizontal: 12,
     },
     topMargin: {
-      height: 26,
+      height: 74,
     },
     bottomMargin: {
       height: 60,
     },
     headerWrapper: {
-      paddingVertical: 8,
+      zIndex: 9,
+      margin: 30,
     },
   });
   return (
     <SafeAreaView style={localStyle.wholeScreen}>
-      <View style={localStyle.headerWrapper}>
-        <Header {...headerProps} />
-      </View>
+      <Header {...headerProps} />
       <ScrollView style={localStyle.mainScreen}>
         <View style={localStyle.topMargin} />
         {children}
